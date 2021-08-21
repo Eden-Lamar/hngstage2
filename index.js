@@ -15,8 +15,10 @@ app.post("/email", (req, res) => {
 	const { name, email, subject, message } = req.body;
 	sendMail(email, subject, message, (err, data) => {
 		if (err) {
+			console.log(err);
 			res.status(500).json({ message: err.message });
 		} else {
+			console.log("red");
 			res.status(200).json({ message: "Message sent successfully", data });
 		}
 	});
